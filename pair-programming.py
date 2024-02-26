@@ -1,3 +1,5 @@
+import numpy as np
+
 # Define a function to convert feet and inches to meters
 def convert_to_meters(feet, inches):
     """
@@ -15,6 +17,12 @@ def convert_to_meters(feet, inches):
     1.6002
 
     """
+
+    # Assert that feet is an integer, a float, or a numpy array
+    assert isinstance(feet, (int, float, np.ndarray)), "feet should be an integer, a float, or a numpy array"
+
+    # Assert that inches is an integer, a float, or a numpy array
+    assert isinstance(inches, (int, float, np.ndarray)), "inches should be an integer, a float, or a numpy array"
 
     # Constants for conversion
     # Here we define a local constant that represents the number of meters in a foot
@@ -50,4 +58,10 @@ inches = 3
 meters = convert_to_meters(feet, inches)
 
 # We print out the result in a formatted string
+print(f"{feet} feet {inches} inches is equal to {meters} meters.")
+
+# Test the function with numpy arrays
+feet = np.array([5, 6])
+inches = np.array([3, 2])
+meters = convert_to_meters(feet, inches)
 print(f"{feet} feet {inches} inches is equal to {meters} meters.")
