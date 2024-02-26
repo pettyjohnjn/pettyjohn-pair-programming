@@ -76,3 +76,18 @@ meters = convert_to_meters(feet, inches)
 # We print out the result in a formatted string
 for i in range(len(feet)):
     print(f"{feet[i]} feet {inches[i]} inches is equal to {meters[i]} meters.")
+
+# Feedback
+
+# Documentation is clear and each step is well described.
+# The documentaion in the beginning clearly defines the purpose of the funciton, as well as the parameters and returns and their respective variable types.
+
+# The only thing that I would change would be to round the resulting meters to a certain decimal place so there is consisancy in precision and assertion errors do not occur.
+
+
+# test function
+def test_convert_to_meters():
+    assert round(convert_to_meters(3, 3), 4) == .9906     # assertation rounded to 4 decimals
+    assert round(convert_to_meters(1, 11), 4) == .5842
+    print("all tests passed")
+
