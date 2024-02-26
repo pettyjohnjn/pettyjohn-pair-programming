@@ -15,6 +15,8 @@ def convert_to_meters(feet, inches):
     Example:
     >>> convert_to_meters(5, 3)
     1.6002
+    >>> convert_to_meters(np.array([5, 6]), np.array([3, 2]))
+    array([1.6002, 1.8796])
 
     """
 
@@ -43,8 +45,8 @@ def convert_to_meters(feet, inches):
     # We add the number of meters from the feet and the inches together
     total_meters = feet_in_meters + inches_in_meters
 
-    # We return the total number of meters
-    return total_meters
+    # We return the total number of meters rounded to 4 decimal places
+    return np.round(total_meters,4)
 
 # Test the function
 # We define a global variable for the number of feet
@@ -61,7 +63,16 @@ meters = convert_to_meters(feet, inches)
 print(f"{feet} feet {inches} inches is equal to {meters} meters.")
 
 # Test the function with numpy arrays
+# We define a global variable for the number of feet
 feet = np.array([5, 6])
+
+# We define a global variable for the number of inches
 inches = np.array([3, 2])
+
+# We call our function with the number of feet and inches
+# and store the result in a variable called meters
 meters = convert_to_meters(feet, inches)
-print(f"{feet} feet {inches} inches is equal to {meters} meters.")
+
+# We print out the result in a formatted string
+for i in range(len(feet)):
+    print(f"{feet[i]} feet {inches[i]} inches is equal to {meters[i]} meters.")
